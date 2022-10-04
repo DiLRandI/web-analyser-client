@@ -2,10 +2,10 @@
   <form class="form-inline">
     <div class="form-group">
       <label for="webUrl">Please enter Web URL to analyse</label>
-      <input type="url" class="form-control" id="webUrl" placeholder="Web URL">
+      <input type="url" class="form-control" id="url" placeholder="Web URL" [formControl]="url">
     </div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="button" class="btn btn-primary" (click)="onSubmit()">Submit</button>
   </form>
 
 </div>

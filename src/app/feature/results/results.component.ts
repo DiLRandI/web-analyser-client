@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {NgbActiveModal, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import { Component, Input, OnInit } from '@angular/core';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-results',
@@ -7,11 +7,15 @@ import {NgbActiveModal, NgbModal} from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./results.component.scss']
 })
 export class ResultsComponent implements OnInit {
-
-  constructor(public activeModal: NgbActiveModal) {}
+  @Input()
+  public item: any;
+  public headings: any;
+  constructor(public activeModal: NgbActiveModal) { }
 
 
   ngOnInit(): void {
+    if (this.item && this.item.headings) {
+      this.headings = Object.keys(this.item.headings)
+    }
   }
-
 }

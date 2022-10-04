@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ResultsComponent } from './results/results.component';
 import { ListResultComponent } from './list-result/list-result.component';
 import { SubmitFormComponent } from './submit-form/submit-form.component';
-import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -16,7 +16,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   ],
   imports: [
     CommonModule,
-    NgbModule
+    NgbModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   exports:[
     ListResultComponent,

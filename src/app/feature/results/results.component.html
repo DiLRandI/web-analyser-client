@@ -3,7 +3,39 @@
   <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
 </div>
 <div class="modal-body">
-  <p>Hello</p>
+  <div *ngIf="!item ||(item && item.processStatus === 'Created') ">Waiting for the process to complete</div>
+  <div *ngIf="item && item.processStatus === 'Completed'" class="result-report">
+    <div>
+      <span class="cold-md-3">URL : </span><label>{{item.url}}</label>
+    </div>
+    <div>
+      <span class="cold-md-3">Page Version :</span><label>{{item.pageVersion}}</label>
+    </div>
+    <div>
+      <span class="cold-md-3">Title : </span><label>{{item.title}}</label>
+    </div>
+    <div>
+      <span class="cold-md-3">Internal Links Count : </span><label>{{item.internalLinkCount}}</label>
+    </div>
+    <div>
+      <span class="cold-md-3">External Links Count : </span><label>{{item.externalLinkCount}}</label>
+    </div>
+    <div>
+      <span class="cold-md-3">Active Links Count : </span><label>{{item.activeLinkCount}}</label>
+    </div>
+    <div>
+      <span class="cold-md-3">Inactive Links Count : </span><label>{{item.inactiveLinkCount}}</label>
+    </div>
+    <div>
+      <span class="cold-md-3">Has a Login Form : </span><label>{{item.hasLoginForm}}</label>
+    </div>
+    <div>
+      <span class="cold-md-3">Headings : </span>
+      <div *ngFor="let h of headings">
+        <span class="cold-md-3"> {{h}} : </span><label>{{item.headings[h]}}</label>
+      </div>
+    </div>
+  </div>
 </div>
 <div class="modal-footer">
   <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>

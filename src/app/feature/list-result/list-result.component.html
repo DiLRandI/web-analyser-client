@@ -5,26 +5,17 @@
         <th scope="col">#</th>
         <th scope="col">Url</th>
         <th scope="col">Process Status</th>
-        <th scope="col">Handle</th>
+        <th scope="col">Requested</th>
+        <th scope="col">Completed</th>
       </tr>
     </thead>
     <tbody>
-      <tr class="result-item" (click)="onItemClick()">
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
+      <tr *ngFor="let item of resultList" class="result-item" (click)="onItemClick(item)">
+        <th scope="row">{{item.id}}</th>
+        <td>{{item.url}}</td>
+        <td>{{item.processStatus}}</td>
+        <td>{{item.requested | date:'medium'}}</td>
+        <td>{{item.completed | date:'medium'}}</td>
       </tr>
     </tbody>
   </table>
